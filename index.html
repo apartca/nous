@@ -11,24 +11,21 @@
 
   <style>
     :root {
-      --bg: #f6f2ea;
-      --bg-alt: #efe8dc;
-      --surface: rgba(255, 255, 255, 0.78);
-      --surface-strong: #fffdf9;
-      --text: #161616;
-      --muted: #5f5a52;
-      --line: rgba(22, 22, 22, 0.1);
-      --accent: #7b1f2a;
-      --accent-dark: #57151d;
-      --accent-soft: rgba(123, 31, 42, 0.08);
-      --dark: #121212;
-      --dark-soft: #1b1b1b;
+      --bg: #f5efe4;
+      --bg-soft: #efe6d6;
+      --surface: rgba(255, 255, 255, 0.82);
+      --text: #1a1816;
+      --muted: #665f57;
+      --line: rgba(26, 24, 22, 0.10);
+      --accent: #6f4f3f;
+      --accent-dark: #4f372d;
+      --deep: #151515;
       --white: #ffffff;
       --max-width: 1180px;
-      --radius: 24px;
+      --radius: 26px;
       --radius-sm: 18px;
       --shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
-      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
+      --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.06);
     }
 
     * {
@@ -43,16 +40,16 @@
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(123, 31, 42, 0.08), transparent 25%),
-        radial-gradient(circle at top right, rgba(0, 0, 0, 0.05), transparent 24%),
-        linear-gradient(180deg, #f8f4ed 0%, var(--bg) 100%);
       line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(111, 79, 63, 0.08), transparent 26%),
+        radial-gradient(circle at top right, rgba(140, 107, 87, 0.08), transparent 22%),
+        linear-gradient(180deg, #f7f2ea 0%, var(--bg) 100%);
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
     }
 
     a {
@@ -60,41 +57,22 @@
       text-decoration: none;
     }
 
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
     .container {
       width: min(var(--max-width), calc(100% - 32px));
       margin: 0 auto;
     }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    /* HEADER */
 
     .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(14px);
-      background: rgba(246, 242, 234, 0.85);
-      border-bottom: 1px solid rgba(22, 22, 22, 0.08);
+      background: rgba(245, 239, 228, 0.9);
+      border-bottom: 1px solid rgba(26, 24, 22, 0.08);
     }
 
     .header-inner {
-      min-height: 82px;
+      min-height: 86px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -104,19 +82,29 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       min-width: 0;
     }
 
+    .brand-logo-frame {
+      width: 74px;
+      height: 74px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8f4ec 100%);
+      border: 1px solid rgba(26, 24, 22, 0.08);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      padding: 8px;
+    }
+
     .brand-logo {
-      width: 58px;
-      height: 58px;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       border-radius: 16px;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 6px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(22, 22, 22, 0.06);
     }
 
     .brand-text {
@@ -134,11 +122,8 @@
     }
 
     .brand-subtitle {
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: var(--muted);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     .main-nav {
@@ -149,75 +134,70 @@
     }
 
     .main-nav a {
-      font-size: 0.95rem;
-      color: var(--muted);
+      font-size: 0.96rem;
       font-weight: 600;
-      transition: color 0.2s ease, opacity 0.2s ease;
+      color: var(--muted);
+      transition: color 0.2s ease;
     }
 
-    .main-nav a:hover,
-    .main-nav a:focus-visible {
-      color: var(--accent);
+    .main-nav a:hover {
+      color: var(--accent-dark);
     }
 
     .main-nav .nav-cta {
-      min-height: 44px;
+      min-height: 46px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       padding: 0 18px;
       border-radius: 999px;
-      background: var(--accent);
-      color: var(--white);
-      box-shadow: 0 10px 24px rgba(123, 31, 42, 0.2);
-    }
-
-    .main-nav .nav-cta:hover,
-    .main-nav .nav-cta:focus-visible {
-      color: var(--white);
       background: var(--accent-dark);
+      color: var(--white);
+      box-shadow: 0 10px 22px rgba(79, 55, 45, 0.18);
     }
 
-    /* HERO */
+    .main-nav .nav-cta:hover {
+      background: #392721;
+      color: var(--white);
+    }
 
     .hero {
-      padding: 44px 0 28px;
+      padding: 42px 0 28px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
       gap: 24px;
       align-items: stretch;
     }
 
-    .hero-card,
-    .panel,
+    .hero-copy,
+    .hero-visual,
     .card,
-    .territory-banner,
-    .support-box {
+    .territory-banner {
       background: var(--surface);
-      border: 1px solid rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.48);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
     }
 
-    .hero-card {
+    .hero-copy {
       padding: 42px;
       position: relative;
       overflow: hidden;
     }
 
-    .hero-card::after {
+    .hero-copy::after {
       content: "";
       position: absolute;
-      right: -60px;
-      top: -60px;
+      top: -80px;
+      right: -80px;
       width: 220px;
       height: 220px;
       border-radius: 50%;
-      background: rgba(123, 31, 42, 0.06);
+      background: rgba(111, 79, 63, 0.06);
       pointer-events: none;
     }
 
@@ -226,8 +206,8 @@
       align-items: center;
       padding: 8px 14px;
       border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
+      background: rgba(111, 79, 63, 0.08);
+      color: var(--accent-dark);
       font-size: 0.82rem;
       font-weight: 800;
       text-transform: uppercase;
@@ -238,16 +218,16 @@
     .hero h1 {
       margin: 0 0 18px;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.5rem, 5vw, 5.2rem);
+      font-size: clamp(2.7rem, 5vw, 5.2rem);
       line-height: 0.98;
       letter-spacing: -0.03em;
       position: relative;
       z-index: 1;
     }
 
-    .hero p.lead {
+    .hero .lead {
       margin: 0;
-      font-size: 1.15rem;
+      font-size: 1.14rem;
       color: var(--muted);
       max-width: 58ch;
       position: relative;
@@ -275,37 +255,36 @@
       transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
-    .button:hover,
-    .button:focus-visible {
+    .button:hover {
       transform: translateY(-1px);
     }
 
     .button.primary {
-      background: var(--accent);
+      background: var(--accent-dark);
       color: var(--white);
-      box-shadow: 0 12px 26px rgba(123, 31, 42, 0.18);
     }
 
-    .button.primary:hover,
-    .button.primary:focus-visible {
-      background: var(--accent-dark);
+    .button.primary:hover {
+      background: #392721;
     }
 
     .button.secondary {
-      background: rgba(255, 255, 255, 0.58);
+      background: rgba(255,255,255,0.6);
       border-color: var(--line);
       color: var(--text);
     }
 
-    .panel {
-      padding: 28px;
+    .hero-visual {
+      padding: 26px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 24px;
+      gap: 22px;
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,0.95) 0%, rgba(250,245,237,0.9) 60%, rgba(239,230,214,0.8) 100%);
     }
 
-    .panel-label {
+    .visual-label {
       font-size: 0.84rem;
       font-weight: 800;
       text-transform: uppercase;
@@ -313,30 +292,51 @@
       color: var(--muted);
     }
 
-    .panel-quote {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.3rem, 2.2vw, 2rem);
-      line-height: 1.15;
+    .logo-spotlight {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 420px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at center, #ffffff 0%, #fbf7ef 42%, #eee4d2 72%, #e4d7c0 100%);
+      border: 1px solid rgba(26, 24, 22, 0.08);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.7),
+        0 18px 40px rgba(0, 0, 0, 0.08);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .panel-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 12px;
+    .logo-spotlight::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.32);
+      filter: blur(20px);
+      pointer-events: none;
     }
 
-    .panel-list li {
-      padding: 14px 16px;
-      border-radius: var(--radius-sm);
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid rgba(22, 22, 22, 0.06);
-      font-weight: 600;
+    .logo-spotlight img {
+      width: min(100%, 420px);
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 22px 35px rgba(79, 55, 45, 0.18));
+      position: relative;
+      z-index: 1;
     }
 
-    /* SECTIONS */
+    .visual-note {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid rgba(26, 24, 22, 0.06);
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
 
     section {
       padding: 16px 0 28px;
@@ -366,8 +366,7 @@
 
     .intro-grid,
     .cards-grid,
-    .formats-grid,
-    .support-grid {
+    .formats-grid {
       display: grid;
       gap: 20px;
     }
@@ -384,10 +383,6 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .support-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
     .card {
       padding: 28px;
     }
@@ -399,7 +394,7 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--accent);
+      color: var(--accent-dark);
     }
 
     .card h3 {
@@ -417,7 +412,7 @@
       padding: 36px;
       background:
         radial-gradient(circle at top right, rgba(255,255,255,0.12), transparent 30%),
-        linear-gradient(135deg, rgba(123, 31, 42, 0.98), rgba(87, 21, 29, 0.98));
+        linear-gradient(135deg, rgba(111, 79, 63, 0.98), rgba(79, 55, 45, 0.98));
       color: var(--white);
       position: relative;
       overflow: hidden;
@@ -432,7 +427,6 @@
       height: 220px;
       border-radius: 50%;
       background: rgba(255,255,255,0.08);
-      pointer-events: none;
     }
 
     .territory-banner h2 {
@@ -452,32 +446,9 @@
       z-index: 1;
     }
 
-    .support-box {
-      padding: 32px;
-    }
-
-    .support-item {
-      padding: 22px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(22, 22, 22, 0.06);
-    }
-
-    .support-item h3 {
-      margin: 0 0 10px;
-      font-size: 1.08rem;
-    }
-
-    .support-item p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    /* FOOTER */
-
     .site-footer {
       margin-top: 56px;
-      background: var(--dark);
+      background: var(--deep);
       color: #f4efe7;
       border-top: 1px solid rgba(255,255,255,0.06);
     }
@@ -503,8 +474,7 @@
       text-transform: uppercase;
     }
 
-    .footer-brand p,
-    .footer-col p {
+    .footer-brand p {
       margin: 0;
       color: rgba(244, 239, 231, 0.72);
     }
@@ -529,9 +499,7 @@
     }
 
     .footer-links a:hover,
-    .footer-links a:focus-visible,
-    .footer-social a:hover,
-    .footer-social a:focus-visible {
+    .footer-social a:hover {
       color: var(--white);
     }
 
@@ -551,18 +519,10 @@
       color: rgba(244, 239, 231, 0.82);
     }
 
-    .footer-bottom a:hover,
-    .footer-bottom a:focus-visible {
-      color: var(--white);
-    }
-
-    /* RESPONSIVE */
-
     @media (max-width: 1024px) {
       .hero-grid,
       .intro-grid,
       .cards-grid,
-      .support-grid,
       .footer-grid {
         grid-template-columns: 1fr;
       }
@@ -571,12 +531,12 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .main-nav {
-        gap: 16px;
-      }
-
       .main-nav a:not(.nav-cta) {
         display: none;
+      }
+
+      .logo-spotlight {
+        min-height: 320px;
       }
     }
 
@@ -586,27 +546,27 @@
       }
 
       .header-inner {
-        min-height: 72px;
+        min-height: 74px;
       }
 
-      .brand-logo {
-        width: 50px;
-        height: 50px;
+      .brand-logo-frame {
+        width: 62px;
+        height: 62px;
+        border-radius: 18px;
       }
 
       .brand-subtitle {
-        white-space: normal;
+        display: none;
       }
 
       .hero {
-        padding-top: 28px;
+        padding-top: 26px;
       }
 
-      .hero-card,
-      .panel,
+      .hero-copy,
+      .hero-visual,
       .card,
-      .territory-banner,
-      .support-box {
+      .territory-banner {
         padding: 22px;
         border-radius: 20px;
       }
@@ -615,8 +575,17 @@
         font-size: 2.35rem;
       }
 
-      .hero p.lead {
-        font-size: 1.03rem;
+      .hero .lead {
+        font-size: 1.04rem;
+      }
+
+      .logo-spotlight {
+        min-height: 260px;
+        padding: 18px;
+      }
+
+      .logo-spotlight img {
+        width: min(100%, 290px);
       }
 
       .section-head {
@@ -639,7 +608,9 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="Accueil NOUS Audio">
-        <img src="nous.png" alt="Logo NOUS Audio" class="brand-logo" />
+        <div class="brand-logo-frame">
+          <img src="nous.png" alt="Logo NOUS Audio" class="brand-logo" />
+        </div>
         <div class="brand-text">
           <span class="brand-title">NOUS Audio</span>
           <span class="brand-subtitle">Média libre • associatif • non lucratif</span>
@@ -650,7 +621,7 @@
         <a href="#vision">Vision</a>
         <a href="#formats">Formats</a>
         <a href="#territoires">Territoires</a>
-        <a href="#participer" class="nav-cta">Participer</a>
+        <a href="https://www.mailcheap.co/" target="_blank" rel="noopener noreferrer" class="nav-cta">Nous écrire</a>
       </nav>
     </div>
   </header>
@@ -658,35 +629,32 @@
   <main id="top">
     <section class="hero" id="vision">
       <div class="container hero-grid">
-        <div class="hero-card">
-          <span class="eyebrow">Un mot. Une vision. Un mouvement.</span>
-          <h1>Raconter les territoires avec liberté, exigence et collectif.</h1>
+        <div class="hero-copy">
+          <span class="eyebrow">Média libre • associatif • non lucratif</span>
+          <h1>Des récits locaux, une voix indépendante, un regard attentif sur les territoires.</h1>
           <p class="lead">
-            NOUS Audio est un média libre, associatif et non lucratif. Il donne une voix
-            aux lieux, aux habitants, aux mémoires, aux savoir-faire et aux récits que
-            les circuits médiatiques dominants regardent trop peu.
+            NOUS Audio est un média dédié au patrimoine vivant, aux histoires locales,
+            aux savoir-faire, aux voix d’habitants et aux paysages culturels qui méritent
+            d’être partagés avec soin.
           </p>
 
           <div class="hero-actions">
             <a href="#formats" class="button primary">Découvrir le média</a>
-            <a href="#participer" class="button secondary">Rejoindre le projet</a>
+            <a href="https://www.mailcheap.co/" target="_blank" rel="noopener noreferrer" class="button secondary">Nous écrire</a>
           </div>
         </div>
 
-        <aside class="panel" aria-label="Positionnement éditorial">
-          <div>
-            <div class="panel-label">Ligne éditoriale</div>
-            <p class="panel-quote">
-              « Dire je, c’est s’isoler. Dire nous, c’est choisir l’autre. »
-            </p>
+        <aside class="hero-visual" aria-label="Mise en valeur du logo NOUS Audio">
+          <div class="visual-label">Identité visuelle</div>
+
+          <div class="logo-spotlight">
+            <img src="nous.png" alt="Logo NOUS Audio" />
           </div>
 
-          <ul class="panel-list">
-            <li>Indépendance éditoriale</li>
-            <li>Patrimoine vivant et récits locaux</li>
-            <li>Formats audio, vidéo et écrits</li>
-            <li>Culture accessible et ancrage territorial</li>
-          </ul>
+          <div class="visual-note">
+            Une identité sobre, lisible et chaleureuse, pensée pour accompagner un média culturel
+            indépendant.
+          </div>
         </aside>
       </div>
     </section>
@@ -695,19 +663,20 @@
       <div class="container intro-grid">
         <article class="card">
           <span class="kicker">Pourquoi NOUS</span>
-          <h3>Une fraternité ouverte, pas une vitrine figée</h3>
+          <h3>Créer un espace éditorial ouvert et ancré</h3>
           <p>
-            NOUS défend une idée simple : la culture n’a d’intérêt que si elle relie,
-            circule, transmet et rend visibles celles et ceux qu’on oublie trop souvent.
+            NOUS cherche à mettre en lumière des récits, des lieux et des initiatives
+            qui participent à la richesse d’un territoire, avec une attention particulière
+            portée aux personnes qui le font vivre au quotidien.
           </p>
         </article>
 
         <article class="card">
-          <span class="kicker">Ce que le projet refuse</span>
-          <h3>Le bruit, la posture et la logique marchande</h3>
+          <span class="kicker">Notre approche</span>
+          <h3>Prendre le temps de raconter avec justesse</h3>
           <p>
-            Le projet ne cherche ni l’effet de mode ni la saturation de contenu.
-            Il cherche la justesse, la mémoire vivante et l’utilité publique.
+            Le projet privilégie une parole claire, des formats accessibles et une présence
+            éditoriale cohérente, sans courir après l’effet ou la surproduction.
           </p>
         </article>
       </div>
@@ -716,38 +685,38 @@
     <section>
       <div class="container">
         <div class="section-head">
-          <h2>Un média pensé comme un écosystème éditorial</h2>
+          <h2>Un média pensé comme un ensemble éditorial cohérent</h2>
           <p>
-            NOUS n’est pas un simple site vitrine. C’est une plateforme destinée à faire
-            exister des contenus, des voix, des regards et des transmissions.
+            NOUS Audio réunit plusieurs formats pour mieux transmettre la mémoire des lieux,
+            la parole des habitants et les dynamiques culturelles d’un territoire.
           </p>
         </div>
 
         <div class="cards-grid">
           <article class="card">
             <span class="kicker">Collectif</span>
-            <h3>Un projet porté par des habitants</h3>
+            <h3>Une démarche nourrie par les territoires</h3>
             <p>
-              Le média se construit avec des personnes qui vivent, traversent et connaissent
-              les territoires racontés.
+              Le média s’inscrit dans une logique de proximité, en restant attentif aux personnes,
+              aux lieux et aux histoires qui composent un paysage culturel vivant.
             </p>
           </article>
 
           <article class="card">
             <span class="kicker">Transmission</span>
-            <h3>Un patrimoine rendu vivant</h3>
+            <h3>Faire circuler les mémoires et les savoir-faire</h3>
             <p>
-              Il ne s’agit pas de conserver sous verre, mais de faire circuler les récits,
-              les savoir-faire et les mémoires.
+              L’objectif est de documenter, valoriser et transmettre ce qui relie un territoire
+              à son histoire et à son présent.
             </p>
           </article>
 
           <article class="card">
             <span class="kicker">Indépendance</span>
-            <h3>Une plateforme libre de logique commerciale</h3>
+            <h3>Préserver une ligne éditoriale libre</h3>
             <p>
-              La priorité n’est pas l’algorithme. La priorité, c’est la qualité éditoriale,
-              la clarté du regard et le service rendu au territoire.
+              Le projet avance avec une volonté simple : garder une parole sincère, exigeante
+              et accessible, au service du contenu avant tout.
             </p>
           </article>
         </div>
@@ -757,10 +726,10 @@
     <section id="formats">
       <div class="container">
         <div class="section-head">
-          <h2>Des formats pour toucher les gens là où ils sont</h2>
+          <h2>Des formats complémentaires pour raconter autrement</h2>
           <p>
-            Le média s’exprime à travers plusieurs formes complémentaires pour rendre
-            la culture plus proche, plus lisible et plus incarnée.
+            Audio, vidéo, écrit et plateforme numérique : chaque format apporte sa manière
+            d’écouter, de montrer et de transmettre.
           </p>
         </div>
 
@@ -769,35 +738,35 @@
             <span class="kicker">Audio</span>
             <h3>Podcasts et récits immersifs</h3>
             <p>
-              Témoignages, promenades sonores, récits d’habitants, paroles d’artisans,
-              archives vivantes et histoires de lieux.
+              Témoignages, promenades sonores, paroles d’habitants, récits de lieux
+              et histoires sensibles à écouter à son rythme.
             </p>
           </article>
 
           <article class="card">
             <span class="kicker">Vidéo</span>
-            <h3>Reportages et documentaires courts</h3>
+            <h3>Reportages et formats courts</h3>
             <p>
-              Des formats adaptés au numérique sans tomber dans le contenu jetable ou
-              l’habillage creux.
+              Une manière visuelle de donner à voir les gestes, les visages, les ambiances
+              et les réalités qui composent un territoire.
             </p>
           </article>
 
           <article class="card">
             <span class="kicker">Éditorial</span>
-            <h3>Articles, chroniques et agenda culturel</h3>
+            <h3>Articles, chroniques et repères culturels</h3>
             <p>
-              Un espace pour approfondir, contextualiser, documenter et relier les récits
-              entre eux.
+              Un espace pour approfondir, contextualiser et relier les récits entre eux
+              avec plus de recul.
             </p>
           </article>
 
           <article class="card">
             <span class="kicker">Plateforme</span>
-            <h3>Un lieu numérique central, clair et accessible</h3>
+            <h3>Un lieu numérique clair et durable</h3>
             <p>
-              Tous les contenus se retrouvent dans un même espace indépendant, cohérent
-              et durable.
+              L’ensemble des contenus est réuni dans un espace accessible, pensé pour offrir
+              une lecture simple et une vraie cohérence d’ensemble.
             </p>
           </article>
         </div>
@@ -807,12 +776,11 @@
     <section id="territoires">
       <div class="container">
         <div class="territory-banner">
-          <h2>Pézenas comme point de départ. Pas comme limite.</h2>
+          <h2>Pézenas comme point d’ancrage, avec l’envie d’ouvrir plus largement le regard.</h2>
           <p>
-            Pézenas incarne un ancrage fort : ville d’histoire, de culture, de transmission,
-            de circulation vivante. Mais l’ambition du média dépasse une seule commune.
-            NOUS veut raconter tous les territoires à fort patrimoine culturel qui méritent
-            mieux que l’invisibilité.
+            Le projet trouve un premier terrain naturel à Pézenas, ville d’histoire et de culture,
+            tout en gardant l’ambition de faire découvrir d’autres territoires marqués par la mémoire,
+            la création et les savoir-faire.
           </p>
         </div>
       </div>
@@ -825,8 +793,8 @@
         <div class="footer-brand">
           <h3>NOUS Audio</h3>
           <p>
-            Média libre, associatif et non lucratif dédié aux territoires, au patrimoine
-            vivant, aux récits locaux et à celles et ceux qui les font exister.
+            Média libre, associatif et non lucratif dédié aux territoires, au patrimoine vivant,
+            aux récits locaux et aux voix qui les animent.
           </p>
         </div>
 
@@ -836,6 +804,7 @@
             <a href="#vision">Vision</a>
             <a href="#formats">Formats</a>
             <a href="#territoires">Territoires</a>
+            <a href="https://www.mailcheap.co/" target="_blank" rel="noopener noreferrer">Nous écrire</a>
           </div>
         </div>
 
@@ -849,8 +818,8 @@
       </div>
 
       <div class="footer-bottom">
-        <span>© NOUS Audio 2026</span>
-        <a href="mailto:contact@nousaudio.fr">hello@nous.audio</a>
+        <span>© NOUS Audio 2026 — Association à but non lucratif</span>
+        <a href="mailto:contact@nousaudio.fr">contact@nousaudio.fr</a>
       </div>
     </div>
   </footer>
