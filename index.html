@@ -164,8 +164,16 @@
       backdrop-filter: blur(10px);
     }
 
+    .hero-copy,
+    .hero-panel {
+      height: 100%;
+    }
+
     .hero-copy {
       padding: 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .eyebrow {
@@ -181,6 +189,7 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       margin-bottom: 22px;
+      align-self: flex-start;
     }
 
     .hero h1 {
@@ -234,15 +243,17 @@
 
     .hero-panel {
       padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    }
+
+    .editorial-panel {
+      display: grid;
+      grid-template-rows: auto 1fr;
       gap: 24px;
     }
 
-    .panel-top {
+    .editorial-quote-block {
       display: grid;
-      gap: 18px;
+      gap: 14px;
     }
 
     .panel-label {
@@ -260,20 +271,42 @@
       line-height: 1.15;
     }
 
-    .panel-list {
-      display: grid;
-      gap: 12px;
+    .panel-credit {
       margin: 0;
-      padding: 0;
-      list-style: none;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: var(--muted);
     }
 
-    .panel-list li {
-      padding: 14px 16px;
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .editorial-item {
+      padding: 18px;
       border-radius: 18px;
       background: rgba(255,255,255,0.66);
       border: 1px solid rgba(21, 21, 21, 0.06);
+    }
+
+    .editorial-item-title {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .editorial-item p {
+      margin: 0;
+      color: var(--text);
       font-weight: 600;
+      line-height: 1.45;
     }
 
     .section {
@@ -472,6 +505,11 @@
       .main-nav a:not(.nav-cta) {
         display: none;
       }
+
+      .hero-copy,
+      .hero-panel {
+        height: auto;
+      }
     }
 
     @media (max-width: 720px) {
@@ -505,7 +543,8 @@
         align-items: start;
       }
 
-      .formats-grid {
+      .formats-grid,
+      .editorial-grid {
         grid-template-columns: 1fr;
       }
 
@@ -557,21 +596,40 @@
           </div>
         </div>
 
-        <aside class="hero-panel" aria-label="Positionnement éditorial">
-          <div class="panel-top">
+        <aside class="hero-panel editorial-panel" aria-label="Positionnement éditorial">
+          <div class="editorial-quote-block">
             <div class="panel-label">Ligne éditoriale</div>
 
             <p class="panel-quote">
               « Dire je, c’est s’isoler. Dire nous, c’est choisir l’autre. »
             </p>
+
+            <p class="panel-credit">
+              Discours prononcé le 1 mars 2026 à Pézenas par Gordon Shumway.
+            </p>
           </div>
 
-          <ul class="panel-list">
-            <li>Indépendance éditoriale et utilité publique</li>
-            <li>Formats audio, vidéo, écrits et numériques</li>
-            <li>Patrimoine vivant, habitants, artistes, artisans</li>
-            <li>Ancrage local, regard exigeant, diffusion accessible</li>
-          </ul>
+          <div class="editorial-grid">
+            <div class="editorial-item">
+              <span class="editorial-item-title">Indépendance</span>
+              <p>Utilité publique et liberté éditoriale.</p>
+            </div>
+
+            <div class="editorial-item">
+              <span class="editorial-item-title">Formats</span>
+              <p>Audio, vidéo, écrits et numérique.</p>
+            </div>
+
+            <div class="editorial-item">
+              <span class="editorial-item-title">Territoires</span>
+              <p>Habitants, artistes, artisans et patrimoine vivant.</p>
+            </div>
+
+            <div class="editorial-item">
+              <span class="editorial-item-title">Diffusion</span>
+              <p>Ancrage local, regard exigeant et accès accessible.</p>
+            </div>
+          </div>
         </aside>
       </div>
     </section>
