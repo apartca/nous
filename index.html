@@ -12,25 +12,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
 
   <style>
     :root {
-      --bg: #f6f2ea;
-      --surface: rgba(255, 255, 255, 0.76);
-      --text: #151515;
-      --muted: #5c5c5c;
-      --line: rgba(21, 21, 21, 0.12);
-      --accent: #7a1f2a;
-      --accent-dark: #52141c;
-      --accent-soft: rgba(122, 31, 42, 0.08);
-      --footer-bg: #121212;
-      --footer-text: #f5f1e8;
-      --max-width: 1180px;
-      --radius: 24px;
-      --shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+      --bg: #fdf9f6;
+      --section-bg: #e9e1da;
+      --surface: #f9f6f2;
+      --surface-strong: #ffffff;
+      --text: #57453a;
+      --text-soft: #a58b7b;
+      --gold: #c8b99e;
+      --taupe: #a58b7b;
+      --brown: #57453a;
+      --wine: #80202b;
+      --line: #e6dcd2;
+      --shadow: 0 8px 24px rgba(87, 69, 58, 0.12);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max-width: 1280px;
     }
 
     * {
@@ -43,13 +46,10 @@
 
     body {
       margin: 0;
+      background: var(--bg);
       color: var(--text);
-      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-      background:
-        radial-gradient(circle at top left, rgba(122, 31, 42, 0.08), transparent 28%),
-        radial-gradient(circle at top right, rgba(0, 0, 0, 0.04), transparent 24%),
-        var(--bg);
-      line-height: 1.6;
+      font-family: "Barlow", sans-serif;
+      line-height: 1.55;
     }
 
     img {
@@ -63,290 +63,295 @@
     }
 
     .shell {
-      width: min(var(--max-width), calc(100% - 40px));
+      width: min(var(--max-width), calc(100% - 48px));
       margin: 0 auto;
     }
 
+    .playfair {
+      font-family: "Playfair Display", serif;
+    }
+
     .site-header {
+      background: rgba(253, 249, 246, 0.96);
+      border-bottom: 1px solid rgba(87, 69, 58, 0.08);
       position: sticky;
       top: 0;
-      z-index: 100;
-      backdrop-filter: blur(14px);
-      background: rgba(246, 242, 234, 0.9);
-      border-bottom: 1px solid rgba(21, 21, 21, 0.08);
+      z-index: 30;
+      backdrop-filter: blur(10px);
     }
 
     .header-inner {
-      display: flex;
+      min-height: 118px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      justify-content: space-between;
-      gap: 26px;
-      min-height: 120px;
+      gap: 28px;
     }
 
     .brand {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 16px;
       min-width: 0;
     }
 
     .brand-logo {
-      width: 88px;
-      height: 88px;
+      width: 102px;
+      height: auto;
       object-fit: contain;
       flex-shrink: 0;
-      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.08));
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      min-width: 0;
-    }
-
-    .brand-title {
+    .header-tagline {
       font-size: 1rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .brand-subtitle {
-      font-size: 0.9rem;
-      color: var(--muted);
+      font-weight: 500;
+      color: var(--wine);
+      letter-spacing: 0.01em;
     }
 
     .main-nav {
       display: flex;
       align-items: center;
-      gap: 24px;
+      justify-content: flex-end;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
     .main-nav a {
-      color: var(--muted);
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: color 0.2s ease;
+      font-size: 0.98rem;
+      color: var(--brown);
+      font-weight: 500;
+      padding: 10px 8px;
     }
 
     .main-nav a:hover {
-      color: var(--accent);
+      color: var(--wine);
     }
 
     .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
+      padding: 14px 28px !important;
       border-radius: 999px;
-      background: var(--accent);
+      background: var(--wine);
       color: #fff !important;
-      font-weight: 700;
-      box-shadow: 0 10px 24px rgba(122, 31, 42, 0.18);
+      font-weight: 600 !important;
+      box-shadow: 0 6px 18px rgba(128, 32, 43, 0.16);
     }
 
-    .hero {
-      padding: 56px 0 40px;
+    .hero-wrap {
+      background: var(--section-bg);
+      padding: 34px 0 40px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr 0.85fr;
-      gap: 28px;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 32px;
       align-items: stretch;
     }
 
-    .hero-copy,
-    .hero-panel,
+    .hero-card,
+    .editorial-card,
     .card,
     .territory-band {
       background: var(--surface);
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      border-radius: var(--radius);
+      border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
+      border: 1px solid rgba(87, 69, 58, 0.06);
     }
 
-    .hero-copy,
-    .hero-panel {
-      height: 100%;
+    .hero-card,
+    .editorial-card {
+      min-height: 100%;
     }
 
-    .hero-copy {
-      padding: 42px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .hero-card {
+      padding: 42px 38px 36px;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.84rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 22px;
-      align-self: flex-start;
+    .intro-note {
+      margin: 0 0 22px;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--taupe);
     }
 
-    .hero h1 {
-      margin: 0 0 20px;
-      font-size: clamp(2.8rem, 5vw, 5.1rem);
-      line-height: 0.98;
+    .hero-title {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.2rem, 6vw, 5.8rem);
+      line-height: 0.95;
       letter-spacing: -0.03em;
+      color: var(--brown);
     }
 
-    .hero-lead {
-      font-size: 1.16rem;
-      color: var(--muted);
-      max-width: 58ch;
-      margin: 0 0 28px;
+    .hero-title .gold {
+      color: var(--gold);
+    }
+
+    .hero-title .wine {
+      color: var(--wine);
+    }
+
+    .hero-desc {
+      margin: 28px 0 0;
+      max-width: 760px;
+      font-size: 1rem;
+      line-height: 1.35;
+      color: var(--text-soft);
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 26px;
+      gap: 18px;
+      margin-top: 34px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 50px;
-      padding: 0 22px;
+      min-height: 56px;
+      padding: 0 34px;
       border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid transparent;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      font-family: "Barlow", sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+      border: none;
+      cursor: pointer;
     }
 
     .button:hover {
       transform: translateY(-1px);
-    }
-
-    .button.primary {
-      background: var(--accent);
-      color: #fff;
+      opacity: 0.96;
     }
 
     .button.secondary {
-      border-color: var(--line);
-      background: rgba(255, 255, 255, 0.5);
-      color: var(--text);
+      background: var(--gold);
+      color: #fff;
     }
 
-    .hero-panel {
-      padding: 30px;
+    .button.primary {
+      background: var(--wine);
+      color: #fff;
     }
 
-    .editorial-panel {
-      display: grid;
-      grid-template-rows: auto 1fr;
-      gap: 24px;
-    }
-
-    .editorial-quote-block {
-      display: grid;
-      gap: 14px;
+    .editorial-card {
+      padding: 28px 30px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
     }
 
     .panel-label {
-      color: var(--muted);
       font-size: 0.9rem;
-      font-weight: 700;
+      font-weight: 500;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      color: var(--taupe);
+      margin: 0;
     }
 
     .panel-quote {
       margin: 0;
-      font-size: clamp(1.35rem, 2.2vw, 1.95rem);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.65rem, 2.5vw, 2.4rem);
       line-height: 1.15;
+      font-weight: 700;
+      color: var(--brown);
     }
 
     .panel-credit {
       margin: 0;
-      font-size: 0.9rem;
-      line-height: 1.45;
-      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.35;
+      color: var(--taupe);
     }
 
     .editorial-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      align-content: start;
+      gap: 18px;
     }
 
     .editorial-item {
-      padding: 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.66);
-      border: 1px solid rgba(21, 21, 21, 0.06);
+      padding: 16px 14px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(87, 69, 58, 0.08);
     }
 
     .editorial-item-title {
       display: block;
       margin-bottom: 8px;
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      font-size: 0.88rem;
+      font-weight: 700;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--wine);
     }
 
     .editorial-item p {
       margin: 0;
-      color: var(--text);
-      font-weight: 600;
-      line-height: 1.45;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      line-height: 1.2;
+    }
+
+    .video-label {
+      margin: 6px 0 0;
+      text-align: center;
+      color: var(--gold);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .video-placeholder {
+      margin: 0 auto;
+      width: min(100%, 305px);
+      height: 182px;
+      border: 1px solid var(--line);
+      background: var(--surface-strong);
     }
 
     .section {
-      padding: 18px 0 34px;
+      padding: 72px 0 18px;
     }
 
     .section-head {
       display: flex;
-      align-items: end;
       justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 22px;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 26px;
     }
 
     .section-head h2 {
       margin: 0;
-      font-size: clamp(2rem, 3.2vw, 3rem);
-      line-height: 1.05;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 3vw, 3.2rem);
+      line-height: 1.02;
+      color: var(--brown);
     }
 
     .section-head p {
       margin: 0;
-      color: var(--muted);
-      max-width: 52ch;
+      max-width: 58ch;
+      color: var(--text-soft);
+      font-size: 1rem;
     }
 
     .intro-grid,
     .pillars,
     .formats-grid {
       display: grid;
-      gap: 20px;
+      gap: 22px;
     }
 
     .intro-grid {
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.15fr 0.85fr;
     }
 
     .pillars {
@@ -358,106 +363,89 @@
     }
 
     .card {
-      padding: 28px;
-    }
-
-    .card h3 {
-      margin: 0 0 14px;
-      font-size: 1.28rem;
-      line-height: 1.2;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
+      padding: 28px 26px;
+      background: #fbf8f4;
     }
 
     .kicker {
       display: inline-block;
       margin-bottom: 12px;
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      font-size: 0.84rem;
+      font-weight: 700;
       text-transform: uppercase;
-      color: var(--accent);
+      letter-spacing: 0.05em;
+      color: var(--wine);
+      font-family: "Barlow", sans-serif;
+    }
+
+    .card h3 {
+      margin: 0 0 14px;
+      font-family: "Playfair Display", serif;
+      font-size: 1.72rem;
+      line-height: 1.08;
+      color: var(--brown);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 1rem;
     }
 
     .territory-band {
-      padding: 34px;
-      background:
-        linear-gradient(135deg, rgba(122, 31, 42, 0.95), rgba(82, 20, 28, 0.95)),
-        var(--accent);
+      padding: 36px 34px;
+      background: linear-gradient(180deg, #8a2230 0%, #76202b 100%);
       color: #fff;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .territory-band::after {
-      content: "";
-      position: absolute;
-      inset: auto -80px -80px auto;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .territory-band h2,
-    .territory-band p {
-      position: relative;
-      z-index: 1;
     }
 
     .territory-band h2 {
       margin: 0 0 14px;
-      font-size: clamp(2rem, 3.4vw, 3.2rem);
-      line-height: 1.04;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.02;
+      color: #fff;
     }
 
     .territory-band p {
       margin: 0;
       max-width: 70ch;
-      color: rgba(255, 255, 255, 0.88);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1rem;
     }
 
     .site-footer {
-      margin-top: 56px;
-      background: var(--footer-bg);
-      color: var(--footer-text);
-      padding-top: 42px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 64px 0 28px;
+      background: var(--bg);
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr 0.8fr;
-      gap: 30px;
-      padding-bottom: 26px;
+      gap: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
     }
 
-    .footer-brand {
-      max-width: 42ch;
+    .footer-brand h3,
+    .footer-col h4 {
+      margin: 0 0 12px;
+      font-family: "Playfair Display", serif;
+      color: var(--brown);
     }
 
     .footer-brand h3 {
-      margin: 0 0 12px;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .footer-brand p,
-    .footer-col p {
-      margin: 0;
-      color: rgba(245, 241, 232, 0.72);
+      font-size: 1.45rem;
     }
 
     .footer-col h4 {
-      margin: 0 0 12px;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: rgba(245, 241, 232, 0.92);
+      font-size: 1.1rem;
+    }
+
+    .footer-brand p,
+    .footer-col a,
+    .footer-col p {
+      color: var(--text-soft);
+      font-size: 1rem;
     }
 
     .footer-links,
@@ -466,94 +454,95 @@
       gap: 10px;
     }
 
-    .footer-links a,
-    .footer-social a {
-      color: rgba(245, 241, 232, 0.76);
-      transition: color 0.2s ease;
-    }
-
-    .footer-links a:hover,
-    .footer-social a:hover {
-      color: #fff;
-    }
-
     .footer-bottom {
-      min-height: 68px;
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 14px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      color: rgba(245, 241, 232, 0.6);
-      font-size: 0.92rem;
-      padding: 14px 0;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--text-soft);
+      font-size: 0.96rem;
     }
 
-    .footer-bottom a {
-      color: rgba(245, 241, 232, 0.8);
-    }
+    @media (max-width: 1100px) {
+      .header-inner {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 18px 0;
+      }
 
-    @media (max-width: 1024px) {
+      .header-tagline {
+        order: 3;
+      }
+
+      .main-nav {
+        justify-content: flex-start;
+      }
+
       .hero-grid,
       .intro-grid,
       .pillars,
       .footer-grid {
         grid-template-columns: 1fr;
       }
+    }
 
-      .formats-grid {
-        grid-template-columns: 1fr 1fr;
+    @media (max-width: 760px) {
+      .shell {
+        width: min(var(--max-width), calc(100% - 24px));
+      }
+
+      .main-nav {
+        gap: 10px 14px;
       }
 
       .main-nav a:not(.nav-cta) {
         display: none;
       }
 
-      .hero-copy,
-      .hero-panel {
-        height: auto;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .shell {
-        width: min(var(--max-width), calc(100% - 24px));
+      .hero-wrap {
+        padding: 22px 0 28px;
       }
 
-      .hero {
-        padding-top: 28px;
-      }
-
-      .hero-copy,
-      .hero-panel,
+      .hero-card,
+      .editorial-card,
       .card,
       .territory-band {
-        padding: 22px;
-        border-radius: 20px;
+        padding: 24px 20px;
+        border-radius: 22px;
       }
 
-      .brand-logo {
-        width: 72px;
-        height: 72px;
+      .hero-title {
+        font-size: 2.8rem;
       }
 
-      .hero h1 {
-        font-size: 2.45rem;
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .editorial-grid,
+      .formats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding-top: 56px;
       }
 
       .section-head {
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
       }
 
-      .formats-grid,
-      .editorial-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        align-items: start;
+      .brand-logo {
+        width: 84px;
       }
     }
   </style>
@@ -564,53 +553,73 @@
     <div class="shell header-inner">
       <a href="#top" class="brand" aria-label="Accueil NOUS Audio">
         <img src="nous.png" alt="Logo NOUS Audio" class="brand-logo" />
-        <div class="brand-text">
-          <span class="brand-title">NOUS Audio</span>
-          <span class="brand-subtitle">Média libre • associatif • non lucratif</span>
-        </div>
       </a>
+
+      <div class="header-tagline">
+        Mettre en lumière, nos acteurs locaux
+      </div>
 
       <nav class="main-nav" aria-label="Navigation principale">
         <a href="#vision">Vision</a>
         <a href="#formats">Formats</a>
         <a href="#territoires">Territoires</a>
-        <a href="https://mailchi.mp/nous/bonjour" target="_blank" rel="noopener noreferrer" class="nav-cta">Nous rejoindre</a>
+        <a
+          href="https://mailchi.mp/nous/bonjour"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-cta"
+        >
+          Nous rejoindre !
+        </a>
       </nav>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero" id="vision">
+    <section class="hero-wrap" id="vision">
       <div class="shell hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Un mot. Une vision. Un mouvement.</span>
+        <section class="hero-card">
+          <p class="intro-note">Média libre, associatif, non lucratif</p>
 
-          <h1>Raconter les territoires avec exigence, liberté et élan collectif.</h1>
+          <h1 class="hero-title">
+            Raconter les<br />
+            territoires<br />
+            avec exigence,<br />
+            <span class="gold">liberté</span> et<br />
+            <span class="wine">collectif.</span>
+          </h1>
 
-          <p class="hero-lead">
-            NOUS Audio est un média associatif indépendant, créé pour faire entendre les voix,
-            les lieux, les patrimoines et les récits qui trouvent trop rarement leur place dans
-            les circuits médiatiques habituels.
+          <p class="hero-desc">
+            NOUS Audio est un média associatif indépendant, créé pour faire entendre
+            les voix, les lieux, les patrimoines et les récits qui trouvent trop
+            rarement leur place dans les circuits médiatiques habituels.
           </p>
 
           <div class="hero-actions">
-            <a href="#formats" class="button primary">Découvrir le média</a>
-            <a href="https://mailchi.mp/nous/bonjour" target="_blank" rel="noopener noreferrer" class="button secondary">Nous rejoindre</a>
+            <a href="#formats" class="button secondary">Découvrir le média</a>
+            <a
+              href="https://mailchi.mp/nous/bonjour"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button primary"
+            >
+              Nous rejoindre !
+            </a>
           </div>
-        </div>
+        </section>
 
-        <aside class="hero-panel editorial-panel" aria-label="Positionnement éditorial">
-          <div class="editorial-quote-block">
-            <div class="panel-label">Ligne éditoriale</div>
+        <aside class="editorial-card" aria-label="Ligne éditoriale">
+          <p class="panel-label">Ligne éditoriale</p>
 
-            <p class="panel-quote">
-              « Dire je, c’est s’isoler. Dire nous, c’est choisir l’autre. »
-            </p>
+          <blockquote class="panel-quote">
+            « Dire je, c’est s’isoler.<br />
+            Dire nous, c’est choisir l’autre. »
+          </blockquote>
 
-            <p class="panel-credit">
-              Discours prononcé le 1 mars 2026 à Pézenas par Gordon Shumway.
-            </p>
-          </div>
+          <p class="panel-credit">
+            Discours prononcé le 1 mars 2026 à Pézenas<br />
+            par Gordon Shumway.
+          </p>
 
           <div class="editorial-grid">
             <div class="editorial-item">
@@ -630,9 +639,12 @@
 
             <div class="editorial-item">
               <span class="editorial-item-title">Diffusion</span>
-              <p>Ancrage local, regard exigeant et accès accessible.</p>
+              <p>Ancrage local, regard exigeant et accès facile.</p>
             </div>
           </div>
+
+          <p class="video-label">Un résumé, en vidéo</p>
+          <div class="video-placeholder" aria-hidden="true"></div>
         </aside>
       </div>
     </section>
@@ -643,9 +655,9 @@
           <span class="kicker">Pourquoi NOUS</span>
           <h3>Une fraternité ouverte, pas un entre-soi culturel</h3>
           <p>
-            NOUS défend une idée simple : la culture prend tout son sens lorsqu’elle circule,
-            lorsqu’elle relie, et lorsqu’elle donne une place aux personnes, aux récits et aux
-            territoires que l’on regarde trop peu.
+            NOUS défend une idée simple : la culture prend tout son sens lorsqu’elle
+            circule, lorsqu’elle relie, et lorsqu’elle donne une place aux personnes,
+            aux récits et aux territoires que l’on regarde trop peu.
           </p>
         </article>
 
@@ -653,8 +665,8 @@
           <span class="kicker">Notre approche</span>
           <h3>Une présence éditoriale claire et utile</h3>
           <p>
-            Le projet privilégie la justesse, la transmission et la cohérence. Il cherche moins
-            à produire beaucoup qu’à produire avec attention.
+            Le projet privilégie la justesse, la transmission et la cohérence.
+            Il cherche moins à produire beaucoup qu’à produire avec attention.
           </p>
         </article>
       </div>
@@ -665,8 +677,8 @@
         <div class="section-head">
           <h2>Un média pensé comme un écosystème</h2>
           <p>
-            Audio, vidéo, écrit et plateforme numérique : plusieurs formats pour mieux faire
-            circuler les récits, les voix et les mémoires d’un territoire.
+            Audio, vidéo, écrit et plateforme numérique : plusieurs formats pour mieux
+            faire circuler les récits, les voix et les mémoires d’un territoire.
           </p>
         </div>
 
@@ -675,8 +687,8 @@
             <span class="kicker">Collectif</span>
             <h3>Un projet porté par des habitants</h3>
             <p>
-              NOUS place le collectif au centre. Les contenus ont vocation à être nourris par
-              des voix locales, des sensibilités diverses et des engagements concrets.
+              NOUS place le collectif au centre. Les contenus ont vocation à être nourris
+              par des voix locales, des sensibilités diverses et des engagements concrets.
             </p>
           </article>
 
@@ -684,8 +696,8 @@
             <span class="kicker">Transmission</span>
             <h3>Un patrimoine rendu vivant</h3>
             <p>
-              Il ne s’agit pas de figer la mémoire, mais de la faire circuler à travers des récits,
-              des témoignages, des rencontres et des formats accessibles.
+              Il ne s’agit pas de figer la mémoire, mais de la faire circuler à travers
+              des récits, des témoignages, des rencontres et des formats accessibles.
             </p>
           </article>
 
@@ -693,8 +705,8 @@
             <span class="kicker">Indépendance</span>
             <h3>Une plateforme libre de logique commerciale</h3>
             <p>
-              Le projet s’inscrit dans une logique non lucrative : servir le territoire, la culture
-              et la qualité éditoriale avant la logique publicitaire.
+              Le projet s’inscrit dans une logique non lucrative : servir le territoire,
+              la culture et la qualité éditoriale avant la logique publicitaire.
             </p>
           </article>
         </div>
@@ -780,15 +792,21 @@
           <a href="#vision">Vision</a>
           <a href="#formats">Formats</a>
           <a href="#territoires">Territoires</a>
-          <a href="https://mailchi.mp/nous/bonjour" target="_blank" rel="noopener noreferrer">Nous rejoindre</a>
+          <a href="https://mailchi.mp/nous/bonjour" target="_blank" rel="noopener noreferrer">
+            Nous rejoindre
+          </a>
         </div>
       </div>
 
       <div class="footer-col">
         <h4>Réseaux</h4>
         <div class="footer-social" aria-label="Réseaux sociaux NOUS Audio">
-          <a href="https://www.facebook.com/profile.php?id=61576529370807" target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="https://www.instagram.com/nous.audio" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61576529370807" target="_blank" rel="noopener noreferrer">
+            Facebook
+          </a>
+          <a href="https://www.instagram.com/nous.audio" target="_blank" rel="noopener noreferrer">
+            Instagram
+          </a>
         </div>
       </div>
     </div>
