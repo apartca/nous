@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Mentions légales, confidentialité, RGPD et informations de traitement des données de NOUS Audio."
+    content="Mentions légales, confidentialité, RGPD et informations relatives aux données personnelles de NOUS Audio."
   />
   <title>Mentions légales & confidentialité — NOUS Audio</title>
 
@@ -23,7 +23,7 @@
       --surface: #f9f6f2;
       --surface-strong: #ffffff;
       --text: #57453a;
-      --text-soft: #a58b7b;
+      --text-soft: #7f6a5d;
       --gold: #c8b99e;
       --taupe: #a58b7b;
       --brown: #57453a;
@@ -34,6 +34,7 @@
       --radius-lg: 22px;
       --radius-md: 16px;
       --max-width: 1280px;
+      --reading-width: 880px;
     }
 
     * {
@@ -49,7 +50,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: "Barlow", sans-serif;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     img {
@@ -65,10 +66,6 @@
     .shell {
       width: min(var(--max-width), calc(100% - 48px));
       margin: 0 auto;
-    }
-
-    .playfair {
-      font-family: "Playfair Display", serif;
     }
 
     .site-header {
@@ -137,295 +134,150 @@
       box-shadow: 0 6px 18px rgba(128, 32, 43, 0.16);
     }
 
-    .hero-wrap {
+    .legal-hero {
       background: var(--section-bg);
-      padding: 34px 0 40px;
+      padding: 52px 0 42px;
+      border-bottom: 1px solid rgba(87, 69, 58, 0.06);
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 32px;
-      align-items: stretch;
-    }
-
-    .hero-card,
-    .editorial-card,
-    .card,
-    .territory-band {
-      background: var(--surface);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(87, 69, 58, 0.06);
-    }
-
-    .hero-card,
-    .editorial-card {
-      min-height: 100%;
-    }
-
-    .hero-card {
-      padding: 42px 38px 36px;
+    .legal-hero-inner {
+      max-width: var(--reading-width);
     }
 
     .intro-note {
-      margin: 0 0 22px;
-      font-size: 1rem;
-      font-weight: 400;
+      margin: 0 0 18px;
+      font-size: 0.98rem;
       color: var(--taupe);
     }
 
-    .hero-title {
+    .legal-title {
       margin: 0;
       font-family: "Playfair Display", serif;
-      font-size: clamp(2.7rem, 5vw, 4.8rem);
+      font-size: clamp(2.6rem, 5vw, 4.6rem);
       line-height: 0.98;
       letter-spacing: -0.03em;
       color: var(--brown);
     }
 
-    .hero-title .gold {
+    .legal-title .gold {
       color: var(--gold);
     }
 
-    .hero-title .wine {
+    .legal-title .wine {
       color: var(--wine);
     }
 
-    .hero-desc {
-      margin: 26px 0 0;
-      max-width: 760px;
-      font-size: 1rem;
-      line-height: 1.45;
+    .legal-desc {
+      margin: 24px 0 0;
+      max-width: 72ch;
       color: var(--text-soft);
+      font-size: 1.04rem;
+      line-height: 1.65;
     }
 
-    .hero-actions {
+    .legal-links {
+      margin-top: 28px;
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
-      margin-top: 34px;
+      gap: 12px 18px;
     }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 56px;
-      padding: 0 34px;
-      border-radius: 999px;
-      font-family: "Barlow", sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
-      transition: transform 0.18s ease, opacity 0.18s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-      opacity: 0.96;
-    }
-
-    .button.secondary {
-      background: var(--gold);
-      color: #fff;
-    }
-
-    .button.primary {
-      background: var(--wine);
-      color: #fff;
-    }
-
-    .editorial-card {
-      padding: 28px 30px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-
-    .panel-label {
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--taupe);
-      margin: 0;
-    }
-
-    .panel-quote {
-      margin: 0;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(1.5rem, 2.3vw, 2.2rem);
-      line-height: 1.15;
-      font-weight: 700;
-      color: var(--brown);
-    }
-
-    .panel-credit {
-      margin: 0;
-      font-size: 0.98rem;
-      line-height: 1.4;
-      color: var(--taupe);
-    }
-
-    .editorial-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .editorial-item {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 16px 14px;
-      text-align: center;
-      box-shadow: 0 3px 12px rgba(87, 69, 58, 0.08);
-    }
-
-    .editorial-item-title {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      text-transform: uppercase;
+    .legal-links a {
       color: var(--wine);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
 
-    .editorial-item p {
-      margin: 0;
-      color: var(--text-soft);
-      font-size: 0.95rem;
-      line-height: 1.3;
+    .legal-page {
+      padding: 56px 0 72px;
     }
 
-    .section {
-      padding: 72px 0 18px;
+    .legal-content {
+      max-width: var(--reading-width);
+      margin: 0 auto;
     }
 
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 24px;
-      margin-bottom: 26px;
+    .legal-section + .legal-section {
+      margin-top: 52px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
     }
 
-    .section-head h2 {
-      margin: 0;
+    .legal-section h2 {
+      margin: 0 0 18px;
       font-family: "Playfair Display", serif;
-      font-size: clamp(2rem, 3vw, 3.2rem);
-      line-height: 1.02;
-      color: var(--brown);
-    }
-
-    .section-head p {
-      margin: 0;
-      max-width: 58ch;
-      color: var(--text-soft);
-      font-size: 1rem;
-    }
-
-    .intro-grid,
-    .pillars,
-    .formats-grid {
-      display: grid;
-      gap: 22px;
-    }
-
-    .intro-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .pillars {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .formats-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .card {
-      padding: 28px 26px;
-      background: #fbf8f4;
-    }
-
-    .kicker {
-      display: inline-block;
-      margin-bottom: 12px;
-      font-size: 0.84rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--wine);
-      font-family: "Barlow", sans-serif;
-    }
-
-    .card h3 {
-      margin: 0 0 14px;
-      font-family: "Playfair Display", serif;
-      font-size: 1.65rem;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
       line-height: 1.08;
       color: var(--brown);
     }
 
-    .card p {
-      margin: 0;
-      color: var(--text-soft);
-      font-size: 1rem;
+    .legal-section h3 {
+      margin: 28px 0 10px;
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+      line-height: 1.2;
+      color: var(--brown);
     }
 
-    .card ul,
-    .territory-band ul {
-      margin: 16px 0 0;
-      padding-left: 18px;
-      color: var(--text-soft);
+    .legal-section p {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 1.02rem;
     }
 
-    .card li,
-    .territory-band li {
+    .legal-section ul {
+      margin: 8px 0 18px 0;
+      padding-left: 22px;
+    }
+
+    .legal-section li {
       margin-bottom: 10px;
+      color: var(--text);
     }
 
-    .card a,
-    .footer-col a,
-    .footer-bottom a,
-    .footer-brand a {
+    .legal-section strong {
+      color: var(--brown);
+    }
+
+    .legal-section a {
+      color: var(--wine);
       text-decoration: underline;
       text-underline-offset: 3px;
     }
 
-    .card a:hover,
-    .footer-col a:hover,
-    .footer-bottom a:hover,
-    .footer-brand a:hover {
-      color: var(--wine);
+    .legal-section a:hover {
+      opacity: 0.88;
     }
 
-    .territory-band {
-      padding: 36px 34px;
-      background: #a58b7b;
-      color: #fff;
+    .legal-meta {
+      color: var(--text-soft);
+      font-size: 0.96rem;
+      margin-top: 8px;
     }
 
-    .territory-band h2 {
-      margin: 0 0 14px;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2rem, 3vw, 3rem);
-      line-height: 1.02;
-      color: #fff;
-    }
-
-    .territory-band p {
-      margin: 0;
+    .legal-lead {
+      font-size: 1.08rem;
+      color: var(--text-soft);
       max-width: 70ch;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 1rem;
     }
 
-    .territory-band ul {
-      color: rgba(255, 255, 255, 0.94);
+    .inline-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      padding-left: 0 !important;
+      list-style: none;
+      margin-top: 14px !important;
+    }
+
+    .inline-list li {
+      margin: 0;
+    }
+
+    .inline-list a {
+      color: var(--wine);
+      font-weight: 600;
     }
 
     .site-footer {
@@ -469,6 +321,12 @@
       gap: 10px;
     }
 
+    .footer-col a,
+    .footer-bottom a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .footer-bottom {
       margin-top: 28px;
       padding-top: 18px;
@@ -496,10 +354,6 @@
         justify-content: flex-start;
       }
 
-      .hero-grid,
-      .intro-grid,
-      .pillars,
-      .formats-grid,
       .footer-grid {
         grid-template-columns: 1fr;
       }
@@ -518,38 +372,21 @@
         display: none;
       }
 
-      .hero-wrap {
-        padding: 22px 0 28px;
+      .legal-hero {
+        padding: 28px 0 24px;
       }
 
-      .hero-card,
-      .editorial-card,
-      .card,
-      .territory-band {
-        padding: 24px 20px;
-        border-radius: 22px;
+      .legal-title {
+        font-size: 2.45rem;
       }
 
-      .hero-title {
-        font-size: 2.5rem;
+      .legal-page {
+        padding: 40px 0 56px;
       }
 
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .button {
-        width: 100%;
-      }
-
-      .section {
-        padding-top: 56px;
-      }
-
-      .section-head {
-        flex-direction: column;
-        align-items: flex-start;
+      .legal-section + .legal-section {
+        margin-top: 40px;
+        padding-top: 22px;
       }
 
       .brand-logo {
@@ -572,10 +409,16 @@
 
       <nav class="main-nav" aria-label="Navigation principale">
         <a href="#editeur">Éditeur</a>
+        <a href="#prestataires">Prestataires</a>
         <a href="#donnees">Données</a>
         <a href="#cookies">Cookies</a>
         <a href="#textes-reference">Textes</a>
-        <a href="https://mailchi.mp/nous/bonjour" target="_blank" rel="noopener noreferrer" class="nav-cta">
+        <a
+          href="https://mailchi.mp/nous/bonjour"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-cta"
+        >
           Nous rejoindre !
         </a>
       </nav>
@@ -583,346 +426,262 @@
   </header>
 
   <main id="top">
-    <section class="hero-wrap">
-      <div class="shell hero-grid">
-        <section class="hero-card">
-          <p class="intro-note">Mentions légales, confidentialité et conformité</p>
+    <section class="legal-hero">
+      <div class="shell">
+        <div class="legal-hero-inner">
+          <p class="intro-note">Informations juridiques, données personnelles et conformité</p>
 
-          <h1 class="hero-title">
-            Transparence,<br />
-            <span class="gold">protection</span><br />
-            des données<br />
-            et cadre <span class="wine">juridique clair.</span>
+          <h1 class="legal-title">
+            Mentions légales<br />
+            <span class="gold">& confidentialité</span><br />
+            de <span class="wine">NOUS Audio</span>
           </h1>
 
-          <p class="hero-desc">
-            Cette page présente les informations légales du site NOUS Audio, les règles
-            applicables au traitement des données personnelles, aux cookies, aux transferts
-            éventuels hors Union européenne ainsi qu’aux droits des personnes concernées.
+          <p class="legal-desc">
+            Cette page présente l’identité de l’éditeur du site, les prestataires
+            techniques utilisés, les règles applicables aux données personnelles,
+            aux cookies et aux transferts éventuels hors Union européenne, ainsi
+            que les droits des personnes concernées.
           </p>
 
-          <div class="hero-actions">
-            <a href="#donnees" class="button secondary">Voir la politique de données</a>
-            <a href="mailto:privacy@nous.audio" class="button primary">Contacter la privacy</a>
+          <div class="legal-links" aria-label="Navigation interne">
+            <a href="#editeur">Éditeur du site</a>
+            <a href="#prestataires">Prestataires techniques</a>
+            <a href="#donnees">Données personnelles</a>
+            <a href="#cookies">Cookies & newsletter</a>
+            <a href="#textes-reference">Textes de référence</a>
           </div>
-        </section>
-
-        <aside class="editorial-card" aria-label="Résumé de conformité">
-          <p class="panel-label">Repères essentiels</p>
-
-          <blockquote class="panel-quote">
-            « Informer clairement,<br />
-            limiter la collecte,<br />
-            respecter les droits. »
-          </blockquote>
-
-          <p class="panel-credit">
-            NOUS Audio applique une logique de minimisation des données,
-            de transparence et de responsabilité.
-          </p>
-
-          <div class="editorial-grid">
-            <div class="editorial-item">
-              <span class="editorial-item-title">RGPD</span>
-              <p>Base légale, droits, conservation et sécurité.</p>
-            </div>
-
-            <div class="editorial-item">
-              <span class="editorial-item-title">Sous-traitants</span>
-              <p>GitHub, Cloudflare et Mailchimp.</p>
-            </div>
-
-            <div class="editorial-item">
-              <span class="editorial-item-title">Cookies</span>
-              <p>Consentement requis hors exemption légale.</p>
-            </div>
-
-            <div class="editorial-item">
-              <span class="editorial-item-title">Contacts</span>
-              <p>privacy@nous.audio et dpo@nous.audio</p>
-            </div>
-          </div>
-        </aside>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="editeur">
+    <section class="legal-page">
       <div class="shell">
-        <div class="section-head">
-          <h2>Mentions légales & confidentialité</h2>
-          <p>
-            Informations légales, protection des données personnelles, cookies,
-            sous-traitants techniques et droits des personnes concernées.
-          </p>
-        </div>
+        <article class="legal-content">
 
-        <div class="formats-grid">
-          <article class="card">
-            <span class="kicker">Éditeur du site</span>
-            <h3>Responsable de publication</h3>
+          <section class="legal-section" id="editeur">
+            <h2>Éditeur du site</h2>
+            <p class="legal-lead">
+              Le présent site est édité par l’association porteuse du média NOUS Audio.
+            </p>
+
+            <h3>Informations d’identification</h3>
             <p>
               Le présent site est édité par l’association :
-              <strong>[NOM COMPLET DE L’ASSOCIATION]</strong><br />
-              Forme juridique : Association loi 1901<br />
+              <strong>[NOM COMPLET DE L’ASSOCIATION]</strong>.
+            </p>
+            <p>
+              Forme juridique : <strong>association loi 1901</strong><br />
               Siège social : <strong>[ADRESSE COMPLÈTE]</strong><br />
               RNA : <strong>[À COMPLÉTER]</strong><br />
-              SIREN/SIRET : <strong>[À COMPLÉTER SI DISPONIBLE]</strong><br />
-              Directeur ou directrice de la publication :
-              <strong>[NOM PRÉNOM]</strong><br />
-              Email de contact : <a href="mailto:hello@nous.audio">hello@nous.audio</a>
+              SIREN / SIRET : <strong>[À COMPLÉTER SI DISPONIBLE]</strong>
             </p>
-          </article>
 
-          <article class="card">
-            <span class="kicker">Protection des données</span>
-            <h3>Contacts dédiés</h3>
+            <h3>Direction de la publication</h3>
             <p>
-              Pour toute question relative à la protection des données personnelles,
-              vous pouvez écrire à :
+              Directeur ou directrice de la publication :
+              <strong>[NOM PRÉNOM]</strong>
+            </p>
+
+            <h3>Contact</h3>
+            <p>
+              Email général :
+              <a href="mailto:hello@nous.audio">hello@nous.audio</a>
+            </p>
+            <p>
+              Questions relatives à la vie privée :
               <a href="mailto:privacy@nous.audio">privacy@nous.audio</a><br />
               Délégué à la protection des données (DPO) :
               <a href="mailto:dpo@nous.audio">dpo@nous.audio</a>
             </p>
-          </article>
-        </div>
-      </div>
-    </section>
+          </section>
 
-    <section class="section">
-      <div class="shell">
-        <div class="section-head">
-          <h2>Hébergement et prestataires techniques</h2>
-          <p>
-            Le site s’appuie sur plusieurs prestataires techniques pour l’hébergement,
-            la diffusion, la sécurité réseau, le DNS et, le cas échéant, l’inscription
-            à une newsletter.
-          </p>
-        </div>
+          <section class="legal-section" id="prestataires">
+            <h2>Hébergement et prestataires techniques</h2>
+            <p class="legal-lead">
+              Le site repose sur plusieurs prestataires techniques pour sa publication,
+              sa sécurité réseau, sa gestion DNS et, le cas échéant, la gestion d’une newsletter.
+            </p>
 
-        <div class="pillars">
-          <article class="card">
-            <span class="kicker">Hébergement</span>
-            <h3>GitHub Pages</h3>
+            <h3>Hébergement</h3>
             <p>
-              Le site est hébergé via GitHub Pages, service de publication de sites
-              statiques opéré par GitHub.<br /><br />
+              Le site est hébergé via <strong>GitHub Pages</strong>, service de publication
+              de sites statiques opéré par GitHub.
+            </p>
+            <p>
               GitHub, Inc.<br />
               88 Colin P. Kelly Jr. St.<br />
               San Francisco, CA 94107<br />
               États-Unis
             </p>
-          </article>
 
-          <article class="card">
-            <span class="kicker">DNS · pare-feu · domaine</span>
-            <h3>Cloudflare</h3>
+            <h3>DNS, pare-feu et nom de domaine</h3>
             <p>
-              Le site utilise Cloudflare pour des fonctions techniques telles que
-              la gestion DNS, la protection réseau, le pare-feu applicatif, la
-              sécurisation et, le cas échéant, l’optimisation de la diffusion.<br /><br />
+              Le site utilise <strong>Cloudflare</strong> pour des fonctions techniques
+              telles que la gestion DNS, la sécurité réseau, le pare-feu applicatif,
+              la protection contre certains abus et, le cas échéant, l’optimisation
+              de la diffusion.
+            </p>
+            <p>
               Cloudflare, Inc.<br />
               101 Townsend Street<br />
               San Francisco, CA 94107<br />
               États-Unis
             </p>
-          </article>
 
-          <article class="card">
-            <span class="kicker">Newsletter & emails</span>
-            <h3>Mailchimp</h3>
+            <h3>Newsletter et communications email</h3>
             <p>
               Lorsqu’un formulaire d’inscription est proposé, la gestion de la
               newsletter et de certaines communications email peut être assurée
-              par Mailchimp.<br /><br />
+              par <strong>Mailchimp</strong>.
+            </p>
+            <p>
               The Rocket Science Group LLC d/b/a Mailchimp<br />
               Groupe Intuit<br />
               405 N Angier Ave. NE<br />
               Atlanta, Georgia 30308<br />
               États-Unis
             </p>
-          </article>
-        </div>
-      </div>
-    </section>
+          </section>
 
-    <section class="section" id="donnees">
-      <div class="shell">
-        <div class="section-head">
-          <h2>Données personnelles</h2>
-          <p>
-            NOUS Audio veille à traiter les données personnelles de manière loyale,
-            transparente, pertinente et limitée à ce qui est nécessaire au regard
-            des finalités poursuivies.
-          </p>
-        </div>
+          <section class="legal-section" id="donnees">
+            <h2>Données personnelles</h2>
+            <p class="legal-lead">
+              NOUS Audio veille à traiter les données personnelles de manière licite,
+              loyale, transparente et limitée à ce qui est strictement nécessaire
+              aux finalités poursuivies.
+            </p>
 
-        <div class="formats-grid">
-          <article class="card">
-            <span class="kicker">Responsable du traitement</span>
-            <h3>Qui décide des finalités et des moyens</h3>
+            <h3>Responsable du traitement</h3>
             <p>
               Le responsable du traitement est l’association
               <strong>[NOM COMPLET DE L’ASSOCIATION]</strong>, représentée par
               <strong>[NOM / FONCTION]</strong>, joignable à l’adresse
               <a href="mailto:privacy@nous.audio">privacy@nous.audio</a>.
             </p>
-          </article>
 
-          <article class="card">
-            <span class="kicker">Catégories de données</span>
-            <h3>Ce qui peut être collecté</h3>
-            <p>
-              Selon vos interactions avec le site, NOUS Audio peut traiter :
-              nom, prénom, adresse email, contenu de message, données techniques
-              de connexion, journaux techniques, adresse IP, données liées à la
-              sécurité du site, ainsi que les informations communiquées lors d’une
-              inscription à une newsletter.
-            </p>
-          </article>
+            <h3>Catégories de données susceptibles d’être traitées</h3>
+            <ul>
+              <li>nom et prénom ;</li>
+              <li>adresse email ;</li>
+              <li>contenu des messages envoyés via un formulaire ou par email ;</li>
+              <li>données techniques de connexion et journaux techniques ;</li>
+              <li>adresse IP et données liées à la sécurité du site ;</li>
+              <li>données fournies lors d’une inscription à une newsletter.</li>
+            </ul>
 
-          <article class="card">
-            <span class="kicker">Finalités</span>
-            <h3>Pourquoi ces données sont traitées</h3>
-            <p>Les données peuvent être traitées pour :</p>
+            <h3>Finalités du traitement</h3>
             <ul>
               <li>répondre aux demandes de contact ;</li>
-              <li>assurer l’administration technique, la sécurité et la disponibilité du site ;</li>
-              <li>gérer une inscription à une newsletter ou à des communications éditoriales ;</li>
-              <li>prévenir les abus, fraudes, attaques et incidents de sécurité ;</li>
-              <li>respecter les obligations légales applicables.</li>
+              <li>assurer l’administration technique, la maintenance et la sécurité du site ;</li>
+              <li>gérer les inscriptions à une newsletter ou à des communications éditoriales ;</li>
+              <li>prévenir les abus, fraudes, attaques et incidents techniques ;</li>
+              <li>respecter les obligations légales applicables ;</li>
+              <li>défendre les droits et intérêts légitimes de NOUS Audio.</li>
             </ul>
-          </article>
 
-          <article class="card">
-            <span class="kicker">Bases légales</span>
-            <h3>Fondements juridiques</h3>
-            <p>Les traitements sont fondés, selon les cas, sur :</p>
+            <h3>Bases légales</h3>
             <ul>
-              <li>votre consentement, notamment pour l’inscription à une newsletter ;</li>
-              <li>l’exécution de mesures précontractuelles ou la gestion de votre demande ;</li>
+              <li>le consentement de la personne concernée, notamment pour la newsletter ;</li>
+              <li>l’exécution de mesures précontractuelles ou le traitement d’une demande ;</li>
               <li>l’intérêt légitime de NOUS Audio pour la sécurité, la maintenance et la défense de ses droits ;</li>
               <li>le respect d’une obligation légale lorsque celle-ci s’impose.</li>
             </ul>
-          </article>
 
-          <article class="card">
-            <span class="kicker">Destinataires</span>
-            <h3>Qui peut recevoir les données</h3>
+            <h3>Destinataires</h3>
             <p>
-              Les données sont destinées aux seules personnes habilitées au sein de
-              NOUS Audio et à ses prestataires techniques strictement nécessaires au
-              fonctionnement du site ou des communications, notamment GitHub, Cloudflare
-              et, le cas échéant, Mailchimp.
+              Les données sont destinées aux seules personnes habilitées au sein de NOUS Audio
+              ainsi qu’aux prestataires techniques strictement nécessaires au fonctionnement du site
+              ou des communications, notamment GitHub, Cloudflare et, le cas échéant, Mailchimp.
             </p>
-          </article>
 
-          <article class="card">
-            <span class="kicker">Transferts hors Union européenne</span>
-            <h3>Encadrement des transferts</h3>
+            <h3>Transferts hors Union européenne</h3>
             <p>
-              Certains prestataires utilisés par NOUS Audio sont susceptibles de
-              traiter des données depuis les États-Unis ou d’autres pays hors Union
-              européenne. Lorsque de tels transferts existent, ils sont encadrés
-              par un mécanisme juridique approprié, notamment une décision
-              d’adéquation, le Data Privacy Framework lorsqu’il est applicable,
+              Certains prestataires utilisés par NOUS Audio peuvent être situés hors de l’Union européenne,
+              notamment aux États-Unis, ou y traiter certaines données. Lorsque de tels transferts existent,
+              ils sont encadrés par un mécanisme juridique approprié prévu par la réglementation applicable,
+              notamment une décision d’adéquation lorsqu’elle existe, le Data Privacy Framework lorsqu’il est applicable,
               et/ou les clauses contractuelles types de la Commission européenne.
             </p>
-          </article>
 
-          <article class="card">
-            <span class="kicker">Durées de conservation</span>
-            <h3>Principe de limitation</h3>
-            <p>
-              Les données sont conservées pendant une durée proportionnée à leur finalité,
-              notamment :
-            </p>
+            <h3>Durées de conservation</h3>
             <ul>
               <li>demandes de contact : jusqu’à 3 ans après le dernier échange utile ;</li>
-              <li>données de prospection ou newsletter : jusqu’au retrait du consentement ou, au plus tard, 3 ans après le dernier contact émanant de la personne ;</li>
-              <li>journaux techniques et de sécurité : entre 6 mois et 12 mois, sauf nécessité particulière de sécurité, contentieux ou obligation légale ;</li>
+              <li>données liées à la newsletter ou à la prospection éditoriale : jusqu’au retrait du consentement ou, au plus tard, 3 ans après le dernier contact émanant de la personne concernée ;</li>
+              <li>journaux techniques et de sécurité : entre 6 mois et 12 mois, sauf nécessité particulière, contentieux ou obligation légale ;</li>
               <li>pièces nécessaires à la constatation, à l’exercice ou à la défense de droits en justice : pendant la durée de prescription applicable.</li>
             </ul>
-          </article>
 
-          <article class="card">
-            <span class="kicker">Vos droits</span>
-            <h3>Accès, rectification, effacement, opposition</h3>
+            <h3>Droits des personnes</h3>
             <p>
-              Conformément à la réglementation applicable, vous disposez d’un droit
-              d’accès, de rectification, d’effacement, de limitation, d’opposition,
-              ainsi que, lorsque cela est applicable, d’un droit à la portabilité
-              de vos données et du droit de retirer votre consentement à tout moment.
-              Vous pouvez exercer ces droits en écrivant à
+              Conformément à la réglementation applicable, vous disposez d’un droit d’accès,
+              de rectification, d’effacement, de limitation, d’opposition, ainsi que, lorsque cela
+              est applicable, d’un droit à la portabilité de vos données. Vous disposez également
+              du droit de retirer votre consentement à tout moment lorsque le traitement repose sur celui-ci.
+            </p>
+            <p>
+              Ces droits peuvent être exercés en écrivant à
               <a href="mailto:privacy@nous.audio">privacy@nous.audio</a> ou
               <a href="mailto:dpo@nous.audio">dpo@nous.audio</a>.
             </p>
-          </article>
-        </div>
-      </div>
-    </section>
+          </section>
 
-    <section class="section" id="cookies">
-      <div class="shell intro-grid">
-        <article class="card">
-          <span class="kicker">Cookies & traceurs</span>
-          <h3>Règles applicables</h3>
-          <p>
-            Le site peut utiliser des traceurs strictement nécessaires à son
-            fonctionnement, à sa sécurité et à sa disponibilité. Ces traceurs
-            peuvent être déposés sans consentement lorsqu’ils sont exemptés par la loi.<br /><br />
-            En revanche, tout cookie ou traceur non strictement nécessaire
-            (mesure d’audience non exemptée, personnalisation, publicité, ciblage,
-            enrichissement marketing, etc.) ne doit être déposé qu’après recueil
-            d’un consentement préalable, libre, spécifique, éclairé et univoque.
-            Ce consentement doit pouvoir être refusé aussi facilement qu’il peut
-            être accepté.
-          </p>
-        </article>
+          <section class="legal-section" id="cookies">
+            <h2>Cookies, traceurs et newsletter</h2>
 
-        <article class="card">
-          <span class="kicker">Newsletter</span>
-          <h3>Inscription et désinscription</h3>
-          <p>
-            Lorsque NOUS Audio propose une inscription à une newsletter, celle-ci
-            repose sur le consentement explicite de la personne concernée. L’adresse
-            email n’est utilisée que pour les finalités annoncées au moment de la
-            collecte. Chaque envoi doit permettre une désinscription simple, gratuite
-            et effective. Le retrait du consentement n’affecte pas la licéité du
-            traitement effectué avant ce retrait.
-          </p>
-        </article>
-      </div>
-    </section>
+            <h3>Cookies et autres traceurs</h3>
+            <p>
+              Le site peut utiliser des traceurs strictement nécessaires à son fonctionnement,
+              à sa sécurité et à sa disponibilité. Ces traceurs peuvent être déposés sans consentement
+              lorsqu’ils entrent dans les exemptions prévues par la loi.
+            </p>
+            <p>
+              En revanche, tout cookie ou traceur non strictement nécessaire, notamment ceux liés à la mesure
+              d’audience non exemptée, à la personnalisation, au ciblage, à l’enrichissement marketing ou à la publicité,
+              ne peut être déposé qu’après recueil d’un consentement préalable, libre, spécifique, éclairé et univoque.
+              Ce consentement doit pouvoir être refusé aussi simplement qu’il peut être accepté.
+            </p>
 
-    <section class="section" id="textes-reference">
-      <div class="shell">
-        <div class="territory-band">
-          <h2>Textes de référence</h2>
-          <p>
-            Les présentes mentions s’appuient notamment sur :
-          </p>
-          <ul>
-            <li>la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique (LCEN), notamment pour l’identification de l’éditeur et de l’hébergeur ;</li>
-            <li>la loi n° 78-17 du 6 janvier 1978 modifiée dite « Informatique et Libertés » ;</li>
-            <li>le règlement (UE) 2016/679 du 27 avril 2016 (RGPD) ;</li>
-            <li>la directive 2002/58/CE dite « ePrivacy » et sa transposition en droit français, notamment l’article 82 de la loi Informatique et Libertés pour les cookies et autres traceurs ;</li>
-            <li>la décision d’exécution (UE) 2021/914 de la Commission européenne relative aux clauses contractuelles types pour les transferts de données vers des pays tiers ;</li>
-            <li>les recommandations et lignes directrices de la CNIL applicables aux cookies, à l’information des personnes, à la prospection électronique et à la sécurité des données.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+            <h3>Inscription à une future newsletter</h3>
+            <p>
+              Lorsqu’une inscription à une newsletter est proposée, celle-ci repose sur le consentement explicite
+              de la personne concernée. L’adresse email collectée n’est utilisée que pour les finalités indiquées
+              au moment de la collecte.
+            </p>
+            <p>
+              Chaque envoi doit permettre une désinscription simple, gratuite et effective.
+              Le retrait du consentement n’affecte pas la licéité du traitement effectué avant ce retrait.
+            </p>
+          </section>
 
-    <section class="section">
-      <div class="shell">
-        <article class="card">
-          <span class="kicker">Réclamation</span>
-          <h3>Autorité de contrôle</h3>
-          <p>
-            Si vous estimez, après nous avoir contactés, que vos droits ne sont pas
-            respectés, vous pouvez adresser une réclamation à la CNIL
-            (Commission nationale de l’informatique et des libertés).
-          </p>
+          <section class="legal-section" id="textes-reference">
+            <h2>Textes de référence</h2>
+            <p class="legal-lead">
+              Les présentes mentions s’appuient notamment sur les textes suivants.
+            </p>
+
+            <ul>
+              <li>la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique (LCEN), notamment pour l’identification de l’éditeur et de l’hébergeur ;</li>
+              <li>la loi n° 78-17 du 6 janvier 1978 modifiée dite « Informatique et Libertés » ;</li>
+              <li>le règlement (UE) 2016/679 du 27 avril 2016 (RGPD) ;</li>
+              <li>la directive 2002/58/CE dite « ePrivacy » et sa transposition en droit français, notamment l’article 82 de la loi Informatique et Libertés pour les cookies et autres traceurs ;</li>
+              <li>la décision d’exécution (UE) 2021/914 de la Commission européenne relative aux clauses contractuelles types pour les transferts de données vers des pays tiers ;</li>
+              <li>les recommandations et lignes directrices de la CNIL applicables à l’information des personnes, aux cookies, à la prospection électronique et à la sécurité des données.</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" id="reclamation">
+            <h2>Réclamation</h2>
+            <p>
+              Si vous estimez, après nous avoir contactés, que vos droits ne sont pas respectés,
+              vous pouvez adresser une réclamation à la CNIL
+              (Commission nationale de l’informatique et des libertés).
+            </p>
+            <p class="legal-meta">
+              Dernière mise à jour : [À COMPLÉTER]
+            </p>
+          </section>
+
         </article>
       </div>
     </section>
@@ -933,19 +692,19 @@
       <div class="footer-brand">
         <h3>NOUS Audio</h3>
         <p>
-          Média libre, associatif et non lucratif dédié aux territoires, au patrimoine vivant,
-          aux récits locaux et aux voix qui les font exister.
+          Média libre, associatif et non lucratif dédié aux territoires,
+          au patrimoine vivant, aux récits locaux et aux voix qui les font exister.
         </p>
       </div>
 
       <div class="footer-col">
         <h4>Navigation</h4>
         <div class="footer-links">
+          <a href="index.html">Retour au site</a>
           <a href="#editeur">Éditeur</a>
           <a href="#donnees">Données personnelles</a>
           <a href="#cookies">Cookies</a>
           <a href="#textes-reference">Textes de référence</a>
-          <a href="index.html">Retour au site</a>
         </div>
       </div>
 
